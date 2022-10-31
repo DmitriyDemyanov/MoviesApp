@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <b-button>Button</b-button>
-  <b-button variant="danger">Button</b-button>
-  <b-button variant="success">Button</b-button>
-  <b-button variant="outline-primary">Button</b-button>
+    <MoviesList :list="moviesList"/>
   </div>
 </template>
 
@@ -11,13 +8,16 @@
 
 //424577ad
 
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
+import MoviesList from '@/components/MoviesList.vue';
 
 export default {
   name: "App",
-  components: {},
-  mounted() {
-    this.fetchMovies();
+  components: {
+    MoviesList
+  },
+  computed: {
+    ...mapGetters('movies', ['moviesList'])
   },
   methods: {
     ...mapActions('movies', ['fetchMovies']),
@@ -27,11 +27,9 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family:Arial , Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
 }
 </style>
