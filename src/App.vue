@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <MoviesList :list="moviesList"/>
+    <PosterBg :poster="posterBg"/>
+    <MoviesList :list="moviesList" @changePoster="onChangePoster"/>
   </div>
 </template>
 
@@ -9,24 +10,35 @@
 //424577ad
 
 import { mapActions, mapGetters } from 'vuex';
+import PosterBg from './components/PosterBg.vue';
 import MoviesList from '@/components/MoviesList.vue';
+
 
 export default {
   name: "App",
   components: {
-    MoviesList
+    MoviesList,
+    PosterBg,
   },
+  data: () => ({
+    posterBg:'',
+  }),
   computed: {
     ...mapGetters('movies', ['moviesList'])
   },
   methods: {
     ...mapActions('movies', ['fetchMovies']),
+    onChangePoster(poster) {
+      console.log(poster);
+      this.posterBg = poster;
+    },
   },
 };
 </script>
 
 <style>
 #app {
+  position: relative;
   font-family:Arial , Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
