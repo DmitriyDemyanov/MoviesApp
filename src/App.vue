@@ -3,11 +3,11 @@
     <PosterBg :poster="posterBg"/>
     <MoviesList :list="moviesList" @changePoster="onChangePoster"/>
     <MoviesPagination
-    :current-page="currentPage"
-     :per-page="moviesPerPage"
-     :total="moviesLength"
-     @pageChanged="onPageChanged"
-     />
+      :current-page="currentPage"
+      :per-page="moviesPerPage"
+      :total="moviesLength"
+      @pageChanged="onPageChanged"
+    />
   </div>
 </template>
 
@@ -39,7 +39,15 @@ export default {
       this.posterBg = poster;
     },
     onPageChanged(page) {
+      console.log(this.$router);
+      this.$router.push({ query: { page } })
+
       this.changeCurrentPage(page);
+    },
+  },
+  created() {
+    if(this.$route.query.page) {
+      this.changeCurrentPage(Number(this.$route.query.page));
     }
   },
 };
