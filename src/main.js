@@ -5,7 +5,7 @@ import store from "./store";
 import "./plugins/bootstrap";
 
 Vue.config.productionTip = false;
-vue.use(Router);
+Vue.use(Router);
 new Vue({
   store,
   render: (h) => h(App),
