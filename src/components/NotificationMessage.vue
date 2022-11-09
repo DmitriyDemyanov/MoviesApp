@@ -1,0 +1,31 @@
+<template>
+  <div></div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex';
+export default {
+  name: 'NotificationMessage',
+  computed: {
+    ...mapGetters(['messagePool'])
+  },
+  watch: {
+    messagePool: 'showNotification',
+  },
+  methods: {
+    showNotification({ variant, msg, title }) {
+      this.$bvToast.toast(msg, {
+          title: title,
+          variant: variant,
+          solid: true
+          // autoHideDelay: 5000,
+        });
+    }
+  },
+};
+</script>
+
+
+<style scoped>
+
+</style>
