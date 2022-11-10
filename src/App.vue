@@ -1,6 +1,9 @@
 <template>
   <div id="app">
+
+
     <Loader />
+    <NotificationMessage />
     <PosterBg :poster="posterBg"/>
     <HeaderList />
     <MoviesList :list="moviesList" @changePoster="onChangePoster"/>
@@ -23,6 +26,7 @@ import MoviesList from '@/components/MoviesList.vue';
 import MoviesPagination from './components/MoviesPagination';
 import Loader from "@/components/LoaderShow";
 import HeaderList from './components/HeaderList';
+import NotificationMessage from './components/NotificationMessage'
 
 export default {
   name: "App",
@@ -32,6 +36,7 @@ export default {
     MoviesPagination,
     Loader,
     HeaderList,
+    NotificationMessage,
   },
   data: () => ({
     posterBg:'',
@@ -73,6 +78,8 @@ export default {
   font-family:Arial , Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 </style>
