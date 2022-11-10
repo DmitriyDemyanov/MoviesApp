@@ -15,10 +15,11 @@ export default {
   methods: {
     showNotification({ variant, msg, title }) {
       this.$bvToast.toast(msg, {
-          title: title,
-          variant: variant,
-          solid: true
-          // autoHideDelay: 5000,
+          title,
+          variant,
+          solid: true,
+          autoHideDelay: 5000,
+          appendToast: true
         });
     }
   },

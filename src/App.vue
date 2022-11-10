@@ -78,6 +78,8 @@ export default {
   font-family:Arial , Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 </style>

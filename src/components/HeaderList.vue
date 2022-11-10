@@ -5,12 +5,8 @@
         <BNavbarBrand href="#">MovieDB</BNavbarBrand>
 
         <BNavForm>
-          <BFormInput
-          class="mr-sm-2 search-input"
-          placeholder="Search"
-          v-model="searchValue"
-          debounce="500"
-          ></BFormInput>
+          <BFormInput class="mr-sm-2 search-input" placeholder="Search" v-model="searchValue" debounce="500">
+          </BFormInput>
         </BNavForm>
 
       </BContainer>
@@ -34,7 +30,7 @@ export default {
     ...mapActions('movies', ['searchMovies', 'fetchMovies', 'toggleSearchState']),
     onSearchValueChange(val) {
 
-      if(val) {
+      if (val) {
         this.searchMovies(val);
         this.toggleSearchState(true);
       } else {
@@ -53,12 +49,14 @@ export default {
 .header {
   margin-bottom: 30px;
 }
+
 .navbar {
   background-color: rgba(0, 0, 0, 0.7) !important;
 }
+
 .search-input {
   color: #fff;
-  background: rgba(255, 255, 255, 0,1);
+  background: rgba(255, 255, 255, 0, 1);
   border-color: rgba(0, 0, 0, 0.6);
 }
 </style>
